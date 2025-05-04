@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App</title>
+    <link rel="shortcut icon" href="/public/images/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="./src/css/styles.css">
+</head>
+
+<body>
+    <!-- Todo app container -->
+    <main class="todo-app container">
+        <!-- Header -->
+        <header class="todo-app__header">
+            <h1 class="todo-app__title">Today <span id="dateText">26 Dec</span></h1>
+            <ul class="todo-app__categories grid grid--2">
+                <li class="todo-app__category">
+                    <svg width="22" height="22" class="todo-app__icon">
+                        <use href="/public/icons/sprites.svg#icon-health" />
+                    </svg>
+                    <p id="categoryHealthText"></p>
+                </li>
+                <li class="todo-app__category">
+                    <svg width="22" height="22" class="todo-app__icon">
+                        <use href="/public/icons/sprites.svg#icon-work" />
+                    </svg>
+                    <p id="categoryWorkText"></p>
+                </li>
+                <li class="todo-app__category">
+                    <svg width="22" height="22" class="todo-app__icon">
+                        <use href="/public/icons/sprites.svg#icon-mentality" />
+                    </svg>
+                    <p id="categoryMentalityText"></p>
+                </li>
+                <li class="todo-app__category">
+                    <svg width="22" height="22" class="todo-app__icon">
+                        <use href="/public/icons/sprites.svg#icon-other" />
+                    </svg>
+                    <p id="categoryOtherText"></p>
+                </li>
+            </ul>
+        </header>
+
+        <!-- Todos list -->
+        <ul class="todo-app__list" id="todosList"></ul>
+
+        <!-- Add todo button -->
+        <a href="/src/pages/create-todo.html" class="todo-app__link">
+            <button class="todo-app__button button" id="addTodoButton">
+                <span></span>
+                <span></span>
+            </button>
+        </a>
+    </main>
+
+
+    <script src="/src/js/index.js"></script>
+    <script src="/src/js/loadApp.js"></script>
+</body>
+
+</html>

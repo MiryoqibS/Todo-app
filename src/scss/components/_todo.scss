@@ -1,0 +1,115 @@
+@use "../mixins" as m;
+
+.todo {
+    display: flex;
+    padding: 20px 15px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+    align-items: start;
+    column-gap: 16px;
+
+    &__checkbox {
+        @include m.flex-center;
+
+        width: 24px;
+        height: 24px;
+        background-color: var(--color-white);
+        border: 2px solid var(--color-medium);
+        border-radius: 6px;
+        position: relative;
+
+        &:has(input:checked) {
+            background-color: var(--color-medium);
+        }
+    }
+
+    &__input {
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        z-index: 2;
+    }
+
+    &__icon {
+        @include m.abs-center;
+
+        visibility: hidden;
+        color: var(--color-white);
+    }
+
+    &__input:checked+.todo__icon {
+        visibility: visible;
+    }
+
+    &__body {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        row-gap: 8px;
+    }
+
+    &__title {
+        color: var(--color-black);
+        position: relative;
+        transition: opacity .5s ease;
+
+        // Line through
+        &::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: scaleX(0);
+            width: 100%;
+            height: 2px;
+            background-color: var(--color-black);
+            transform-origin: left;
+            transition: transform 0.5s ease;
+        }
+    }
+
+    &.checked &__title {
+        opacity: 50%;
+
+        &::after {
+            transform: scaleX(1);
+        }
+    }
+
+    &__category {
+        font-size: 12px;
+    }
+
+    // Category checked
+    &.checked &__category {
+        color: var(--color-other);
+
+        &::after {
+            background-color: var(--color-medium);
+            opacity: 50%;
+        }
+
+        &::before {
+            transform: scaleX(1);
+        }
+    }
+
+    // Actions
+    &__actions {
+        margin-left: auto;
+        gap: 4px;
+    }
+
+    &__action {
+        position: relative;
+
+        &-icon {
+            color: var(--color-black);
+
+            @include m.hover {
+                color: red;
+            }
+        }
+    }
+
+
+}

@@ -1,0 +1,15 @@
+{
+  "name": "todo-app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "sass" : "sass --watch src/scss/styles.scss:src/css/styles.css --style=compressed"
+  },
+  "keywords": [],
+  "author": "Miryoqib",
+  "license": "MIT",
+  "description": "",
+  "dependencies": {
+    "sass": "^1.87.0"
+  }
+}

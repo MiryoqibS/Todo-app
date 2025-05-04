@@ -1,0 +1,32 @@
+@mixin fluid-text($min, $max) {
+    font-size: clamp(#{$min}px, #{$max / 1440 * 100}vw, #{$max}px);
+}
+
+@mixin hover {
+    @media all and (hover:hover) {
+        &:hover {
+            cursor: pointer;
+            @content;
+        }
+    }
+
+    @media all and (hover:none) {
+        &:active {
+            cursor: pointer;
+            @content;
+        }
+    }
+}
+
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin abs-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

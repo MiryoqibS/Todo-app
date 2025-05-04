@@ -1,0 +1,22 @@
+@use "./mixins" as m;
+
+body, html {
+    @include m.fluid-text(16, 18);
+    
+    font-family: var(--font-family);
+    font-weight: 500;
+}
+
+h1 {
+    @include m.fluid-text(24, 36);
+
+    font-weight: 600;
+}
+
+svg,
+img,
+a,
+button,
+input {
+    transition-duration: 0.4s;
+}

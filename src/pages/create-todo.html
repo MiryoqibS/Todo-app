@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App</title>
+    <link rel="shortcut icon" href="/public/images/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="/src/css/styles.css">
+</head>
+
+<body>
+    <!-- Create todo container -->
+    <main class="create-todo container">
+        <header class="create-todo__header">
+            <a href="/index.html" class="create-todo__link">
+                <button class="create-todo__button button button--close">
+                    <span></span>
+                    <span></span>
+                </button>
+            </a>
+        </header>
+
+        <input type="text" class="create-todo__input" id="todoTitleInput" placeholder="Write todo title..." />
+
+        <div class="create-todo__categories grid grid--4">
+            <p class="create-todo__category category category--health disable" id="categorySelect">Health</p>
+            <p class="create-todo__category category category--work disable" id="categorySelect">Work</p>
+            <p class="create-todo__category category category--mentality disable" id="categorySelect">Mentality</p>
+            <p class="create-todo__category category category--other disable" id="categorySelect">Other</p>
+        </div>
+
+        <footer class="create-todo__footer">
+            <button class="create-todo__footer-button button">
+                <svg width="25" height="25">
+                    <use href="/public/icons/sprites.svg#icon-clock" />
+                </svg>
+            </button>
+            <button class="create-todo__footer-button button" id="addTodoButton">Save</button>
+        </footer>
+    </main>
+
+    <script src="/src/js/index.js"></script>
+    <script src="/src/js/createTodo.js"></script>
+</body>
+
+</html>

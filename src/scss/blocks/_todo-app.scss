@@ -1,0 +1,132 @@
+@use "../mixins" as m;
+
+.todo-app {
+    display: flex;
+    flex-direction: column;
+    row-gap: 32px;
+
+    // Header
+    &__header {
+        display: flex;
+        flex-direction: column;
+        row-gap: 32px;
+    }
+
+    // Title
+    &__title {
+        color: var(--color-black);
+
+        span {
+            opacity: 30%;
+        }
+    }
+
+    // Categories
+    &__categories {
+        gap: 8px;
+    }
+
+    // Category
+    &__category {
+        display: flex;
+        flex-direction: column;
+        row-gap: 16px;
+        padding: 20px;
+        border-radius: 12px;
+        position: relative;
+        overflow: hidden;
+
+        // Background
+        &:after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--color-white);
+            border-radius: 12px;
+            z-index: -1;
+            transition: all .3s ease;
+            opacity: 10%;
+        }
+
+
+        p {
+            color: var(--color-black);
+            font-weight: 600;
+
+            span {
+                opacity: 50%;
+            }
+        }
+
+        // Hover effect
+        @include m.hover {
+            &:after {
+                opacity: 60%;
+            }
+        }
+
+        // Health
+        &:nth-child(1) {
+            &:after {
+                background-color: var(--color-health);
+
+            }
+        }
+
+        // Work
+        &:nth-child(2) {
+            &:after {
+                background-color: var(--color-work);
+            }
+        }
+
+        // Mentality
+        &:nth-child(3) {
+            &:after {
+                background-color: var(--color-mentality);
+            }
+        }
+
+        // Other
+        &:nth-child(4) {
+            &:after {
+                background-color: var(--color-other);
+            }
+        }
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+    }
+
+    // Link
+    &__link {
+        margin-top: auto;
+        margin-left: auto;
+    }
+
+    // Button
+    &__button {
+        height: 60px;
+        width: 60px;
+        border-radius: 12px;
+        position: relative;
+        background-color: var(--color-black);
+
+        span {
+            @include m.abs-center;
+
+            width: 50%;
+            height: 2px;
+            background-color: var(--color-white);
+
+            &:nth-child(2) {
+                transform: translate(-50%, -50%) rotate(90deg);
+            }
+        }
+    }
+}
