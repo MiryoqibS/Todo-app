@@ -1,22 +1,16 @@
 "use strict";
 
-// Months
-const months = [
-    "Jan", "Feb", "Mar", "Apr", "May", "Jun",
-    "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
-
-// Set date
-const dateText = document.querySelector("#dateText");
-
-const now = new Date();
-
-dateText.innerText = `${now.getDate()} ${months[now.getMonth()]}`;
+import { arrays } from "./arrays.js";
+import { loadCategoriesText } from "./loadCategoriesText.js";
 
 // Load todos
 const todosList = document.querySelector("#todosList");
 
-const loadTodos = () => {
-    todos.forEach((todo) => {
+export const loadTodos = (todosToRender = arrays.todos) => {
+    // 1) Очистка предыдущего рендера
+    todosList.innerHTML = "";
+
+    todosToRender.forEach((todo) => {
         // Data
         const todoTitle = todo.title;
         const todoCategoryClass = `todo--${todo.category.toLowerCase()}`;
@@ -93,13 +87,13 @@ const loadTodos = () => {
         deleteTodoButton.addEventListener("click", () => {
             const todoId = Number(deleteTodoButton.closest(".todo").getAttribute("data-index"));
             if (deleteTodoButton.closest(".todo--health")) {
-                todosHealth.pop();
+                arrays.todosHealth.pop();
             } else if (deleteTodoButton.closest(".todo--work")) {
-                todosWork.pop();
+                arrays.todosWork.pop();
             } else if (deleteTodoButton.closest(".todo--mentality")) {
-                todosMentality.pop();
+                arrays.todosMentality.pop();
             } else if (deleteTodoButton.closest(".todo--other")) {
-                todosOther.pop();
+                arrays.todosOther.pop();
             };
 
             let updatedTodos = JSON.parse(localStorage.getItem("todos")).filter(todo => todo.id !== todoId);
@@ -128,38 +122,22 @@ const loadTodos = () => {
         // Sort todo into category
         switch (todo.category) {
             case "health":
-                todosHealth.push(todo);
+                arrays.todosHealth.push(todo);
                 break;
             case "work":
-                todosWork.push(todo);
+                arrays.todosWork.push(todo);
                 break;
             case "mentality":
-                todosMentality.push(todo);
+                arrays.todosMentality.push(todo);
                 break;
             case "other":
-                todosOther.push(todo);
+                arrays.todosOther.push(todo);
                 break;
         };
 
         // Append into list
-        todosList.append(todoElement);
+        if (todosList) {
+            todosList.append(todoElement);
+        };
     });
 };
-
-// Load categories text
-const loadCategoriesText = () => {
-    const categoryHealthText = document.querySelector("#categoryHealthText");
-    const categoryWorkText = document.querySelector("#categoryWorkText");
-    const categoryMentalityText = document.querySelector("#categoryMentalityText");
-    const categoryOtherText = document.querySelector("#categoryOtherText");
-
-    categoryHealthText.innerHTML = `${todosHealth.length} <span>Health</span>`;
-    categoryWorkText.innerHTML = `${todosWork.length} <span>Work</span>`;
-    categoryMentalityText.innerHTML = `${todosMentality.length} <span>Mentality</span>`;
-    categoryOtherText.innerHTML = `${todosOther.length} <span>Other</span>`;
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-    loadTodos();
-    loadCategoriesText();
-});

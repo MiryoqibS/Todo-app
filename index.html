@@ -16,25 +16,25 @@
         <header class="todo-app__header">
             <h1 class="todo-app__title">Today <span id="dateText">26 Dec</span></h1>
             <ul class="todo-app__categories grid grid--2">
-                <li class="todo-app__category">
+                <li class="todo-app__category" id="categoryHealth">
                     <svg width="22" height="22" class="todo-app__icon">
                         <use href="/public/icons/sprites.svg#icon-health" />
                     </svg>
                     <p id="categoryHealthText"></p>
                 </li>
-                <li class="todo-app__category">
+                <li class="todo-app__category" id="categoryWork">
                     <svg width="22" height="22" class="todo-app__icon">
                         <use href="/public/icons/sprites.svg#icon-work" />
                     </svg>
                     <p id="categoryWorkText"></p>
                 </li>
-                <li class="todo-app__category">
+                <li class="todo-app__category" id="categoryMentality">
                     <svg width="22" height="22" class="todo-app__icon">
                         <use href="/public/icons/sprites.svg#icon-mentality" />
                     </svg>
                     <p id="categoryMentalityText"></p>
                 </li>
-                <li class="todo-app__category">
+                <li class="todo-app__category" id="categoryOther">
                     <svg width="22" height="22" class="todo-app__icon">
                         <use href="/public/icons/sprites.svg#icon-other" />
                     </svg>
@@ -56,8 +56,7 @@
     </main>
 
 
-    <script src="/src/js/index.js"></script>
-    <script src="/src/js/loadApp.js"></script>
+    <script type="module" src="/src/js/index.js"></script>
 </body>
 
 </html>
