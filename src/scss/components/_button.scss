@@ -1,10 +1,14 @@
 @use "../mixins" as m;
+@use "../placeholders";
 
 .button {
+    @extend %no-select;
+    
     font-family: var(--font-family);
     outline: none;
     border: none;
     background-color: transparent;
+    cursor: pointer;
 
     &--close {
         @include m.flex-center;

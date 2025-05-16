@@ -1,0 +1,105 @@
+@use "../placeholders" as p;
+@use "../mixins" as m;
+
+.calendar {
+    display: flex;
+    flex-direction: column;
+    row-gap: 32px;
+    overflow: hidden;
+
+    &__header {
+        display: flex;
+        flex-direction: column;
+        row-gap: 32px;
+    }
+
+    &__title {
+        @extend %title;
+    }
+
+    &__list {
+        position: relative;
+        display: flex;
+        align-items: center;
+        column-gap: 12px;
+        left: 0px;
+        transition: all .5s ease;
+    }
+
+    &__day {
+        @extend %no-select;
+        @include m.flex-center;
+
+        width: 60px;
+        flex-direction: column;
+        row-gap: 10px;
+        border-radius: 8px;
+        border: 2px solid rgba(0, 0, 0, 0.10);
+        color: rgba(0, 0, 0, 0.5);
+        padding: 12px 16px;
+        font-weight: 600;
+
+        &.active {
+            border-color: #000;
+            color: #000;
+        }
+
+        &-weekday {
+            font-size: 14px;
+            letter-spacing: 0.4;
+        }
+
+        &-date {
+            font-size: 18px;
+            letter-spacing: 0.4;
+        }
+    }
+
+    // Events
+    &__events {
+        display: flex;
+        flex-direction: column;
+        row-gap: 4px;
+    }
+
+    &__event {
+        display: flex;
+        align-items: start;
+        column-gap: 20px;
+        min-height: 70px;
+
+        &-time,
+        &-duration {
+            color: rgba(0, 0, 0, 0.4);
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        &-body {
+            display: flex;
+            align-items: start;
+            column-gap: 12px;
+            width: 100%;
+            padding: 18px 16px;
+            border-radius: 12px;
+            height: 100%;
+        }
+
+        &-circle {
+            display: block;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+        }
+
+        &-title {
+            color: var(--color-black);
+            font-style: 18px;
+            font-weight: 600;
+        }
+
+        &-duration {
+            margin-left: auto;
+        }
+    }
+}

@@ -3,6 +3,7 @@
 @use "./variables";
 @use "./typography";
 @use "./mixins";
+@use "./placeholders";
 @use "./grid";
 @use "./utils";
 @use "./globals";
@@ -11,7 +12,10 @@
 @use "./components/category";
 @use "./components/todo";
 @use "./components/button";
+// modals
+@use "./components/timebox";
 
 // Blocks
 @use "./blocks/todo-app";
 @use "./blocks/create-todo";
+@use "./blocks/calendar";

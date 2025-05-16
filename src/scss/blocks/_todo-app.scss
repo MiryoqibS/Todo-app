@@ -1,4 +1,5 @@
 @use "../mixins" as m;
+@use "../placeholders" as p;
 
 .todo-app {
     display: flex;
@@ -14,11 +15,7 @@
 
     // Title
     &__title {
-        color: var(--color-black);
-
-        span {
-            opacity: 30%;
-        }
+        @extend %title;
     }
 
     // Categories
@@ -103,30 +100,24 @@
         flex-direction: column;
     }
 
-    // Link
-    &__link {
+    // Actions
+    &__actions {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        column-gap: 16px;
         margin-top: auto;
-        margin-left: auto;
     }
 
     // Button
     &__button {
+        @include m.flex-center;
+        
+        color: var(--color-white);
         height: 60px;
         width: 60px;
         border-radius: 12px;
         position: relative;
         background-color: var(--color-black);
-
-        span {
-            @include m.abs-center;
-
-            width: 50%;
-            height: 2px;
-            background-color: var(--color-white);
-
-            &:nth-child(2) {
-                transform: translate(-50%, -50%) rotate(90deg);
-            }
-        }
     }
 }

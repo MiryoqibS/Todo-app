@@ -31,13 +31,71 @@
         </div>
 
         <footer class="create-todo__footer">
-            <button class="create-todo__footer-button button">
-                <svg width="25" height="25">
+            <button class="create-todo__footer-button button" id="setTimeButton">
+                <svg width="24" height="24">
                     <use href="/public/icons/sprites.svg#icon-clock" />
                 </svg>
             </button>
-            <button class="create-todo__footer-button button" id="addTodoButton">Save</button>
+            <button class="create-todo__footer-button button" id="addTodoButton">
+                Save
+                <svg width="28" height="28">
+                    <use href="/public/icons/sprites.svg#icon-save"/>
+                </svg>
+            </button>
         </footer>
+
+        <!-- Timebox Modal -->
+        <div class="timebox" id="timeboxModal">
+            <header class="timebox__header">
+                <button class="timebox__button button" id="timeboxCloseButton">
+                    <svg width="24" height="24">
+                        <use href="/public/icons/sprites.svg#icon-left" />
+                    </svg>
+                    Back
+                </button>
+                <h2 class="timebox__title">
+                    Set the time
+                    <svg width="24" height="24">
+                        <use href="/public/icons/sprites.svg#icon-calendar" />
+                    </svg>
+                </h2>
+            </header>
+
+            <div class="timebox__body">
+                <h3>When started</h3>
+                <!-- Time selector -->
+                <div class="timebox__selectors">
+                    <select class="timebox__select" id="timeboxHoursStart">
+                        <option disabled selected>Hours</option>
+                    </select>
+                    <div class="timebox__divider">:</div>
+                    <select class="timebox__select" id="timeboxMinutesStart">
+                        <option disabled selected>Minute</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="timebox__body">
+                <h3>When end</h3>
+                <!-- Time selector -->
+                <div class="timebox__selectors">
+                    <select class="timebox__select" id="timeboxHoursEnd">
+                        <option disabled selected>Hours</option>
+                    </select>
+                    <div class="timebox__divider">:</div>
+                    <select class="timebox__select" id="timeboxMinutesEnd">
+                        <option disabled selected>Minute</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="timebox__reminder">
+                <input type="checkbox" id="timeboxReminder"/>
+                <p>Set a reminder ?</p>
+            </div>
+
+            <button class="timebox__save button" id="saveTimeboxButton">Set Time</button>
+        </div>
     </main>
 
     <script src="/src/js/index.js" type="module"></script>

@@ -7,8 +7,10 @@ import { loadCategoriesText } from "./loadCategoriesText.js";
 const todosList = document.querySelector("#todosList");
 
 export const loadTodos = (todosToRender = arrays.todos) => {
-    // 1) Очистка предыдущего рендера
-    todosList.innerHTML = "";
+    // Clear last list
+    if (todosList) {
+        todosList.innerHTML = "";
+    }
 
     todosToRender.forEach((todo) => {
         // Data
@@ -54,8 +56,8 @@ export const loadTodos = (todosToRender = arrays.todos) => {
         checkbox.addEventListener("click", () => {
             todoElement.classList.toggle("checked");
             const todoElementId = Number(todoElement.getAttribute("data-index")) - 1;
-            todos[todoElementId].isChecked = !todos[todoElementId].isChecked;
-            localStorage.setItem("todos", JSON.stringify(todos));
+            arrays.todos[todoElementId].isChecked = !arrays.todos[todoElementId].isChecked;
+            localStorage.setItem("todos", JSON.stringify(arrays.todos));
         });
 
         // Child element body text content

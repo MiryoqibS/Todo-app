@@ -46,13 +46,25 @@
         <!-- Todos list -->
         <ul class="todo-app__list" id="todosList"></ul>
 
-        <!-- Add todo button -->
-        <a href="/src/pages/create-todo.html" class="todo-app__link">
-            <button class="todo-app__button button" id="addTodoButton">
-                <span></span>
-                <span></span>
-            </button>
-        </a>
+        <div class="todo-app__actions">
+            <!-- Add todo button -->
+            <a href="/src/pages/calendar.html" class="todo-app__link">
+                <button class="todo-app__button button" id="addTodoButton">
+                    <svg width="24" height="24">
+                        <use href="/public/icons/sprites.svg#icon-calendar" />
+                    </svg>
+                </button>
+            </a>
+
+            <!-- Add todo button -->
+            <a href="/src/pages/create-todo.html" class="todo-app__link">
+                <button class="todo-app__button button" id="addTodoButton">
+                    <svg width="28" height="28">
+                        <use href="/public/icons/sprites.svg#icon-plus" />
+                    </svg>
+                </button>
+            </a>
+        </div>
     </main>
 
 
